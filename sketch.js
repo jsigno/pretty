@@ -1,10 +1,12 @@
 const density = "你很美丽";
 let video;
+let canvasWidth = 720;
+let canvasHeight = 450;
 
 function setup() {
-  createCanvas(720, 450);
+  createCanvas(canvasWidth, canvasHeight);
   video = createCapture(VIDEO);
-  video.size(72, 45);
+  video.size(canvasWidth / 10, canvasHeight / 10);
   video.hide();
   button = createButton("save");
   button.mousePressed(keyPressed);
@@ -13,7 +15,7 @@ function setup() {
 function draw() {
   background(255);
   let w = width / video.width;
-  let h = width / video.height;
+  let h = height / video.height;
   video.loadPixels();
 
   for (let j = 0; j < video.height; j++) {
@@ -39,4 +41,11 @@ function draw() {
 function keyPressed() {
   // this will download the frame
   saveCanvas("你很美丽", "jpg");
+}
+
+function windowResized() {
+  // this function will be called whenever the window is resized
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight;
+  resizeCanvas(canvasWidth, canvasHeight);
 }
