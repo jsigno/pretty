@@ -7,7 +7,6 @@ function setup() {
   video.size(72, 45);
   video.hide();
   button = createButton("save");
-  button.position(674, 506);
   button.mousePressed(keyPressed);
 }
 

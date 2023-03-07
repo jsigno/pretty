@@ -35,13 +35,17 @@ canvas {
  }
  
 
-button {
+ button {
+  position: absolute;
+  right: 0;
+  transform: translate(-50%, -50%);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 @media all and (max-width: 414px) {
   button {
-    margin-right: 1000px;
+    position: absolute;
+    margin-right: 200px;
    }
  }
 
