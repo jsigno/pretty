@@ -39,4 +39,10 @@ button {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
+@media all and (max-width: 414px) {
+  button {
+    margin-right: 1000px;
+   }
+ }
+
 
