@@ -23,13 +23,13 @@ function draw() {
       const r = video.pixels[pixelIndex + 0];
       const g = video.pixels[pixelIndex + 1];
       const b = video.pixels[pixelIndex + 2];
-      const avg = (r + g + b) / 3;
+      const avg = (r + g + b ) / 3;
 
       noStroke();
       fill(avg);
 
       const len = density.length;
-      const charIndex = floor(map(avg, 0, 255, 0, len));
+      const charIndex = floor(map(avg, 0, 255, 0, len - 0.0001));
 
       textAlign(CENTER, CENTER);
       text(density.charAt(charIndex), i * w + w * 0.5, j * h + h * 0.5);
