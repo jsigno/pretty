@@ -1,10 +1,33 @@
-const density = "你很美丽";
 let video;
 let canvasWidth = 720;
 let canvasHeight = 450;
 
+// define an object of language options
+const languages = {
+  "Chinese": "美丽的",
+  "Thai": "สวย",
+  "Korean": "아름다운",
+  "Arabic": "جميل",
+  "Japanese": "美しい"
+};
+
+// initialize density with the first language option
+let density = languages["Chinese"];
+
+// create the dropdown menu and add options
+let dropdown;
+function setupDropdown() {
+  dropdown = createSelect();
+  dropdown.position(10, 10);
+  Object.keys(languages).forEach(lang => {
+    dropdown.option(lang);
+  });
+  dropdown.changed(onLanguageSelected);
+}
+
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
+  setupDropdown();
   video = createCapture(VIDEO);
   video.size(canvasWidth / 10, canvasHeight / 10);
   video.hide();
@@ -27,7 +50,8 @@ function draw() {
       const avg = (r + g + b) / 3;
 
       noStroke();
-      fill(avg);
+      const shade = map(avg, 0, 255, 100, 255);
+      fill(shade);
 
       const len = density.length;
       const charIndex = floor(map(avg, 0, 255, 0, len));
@@ -40,7 +64,13 @@ function draw() {
 
 function keyPressed() {
   // this will download the frame
-  saveCanvas("你很美丽", "jpg");
+  saveCanvas(density, "jpg");
+}
+
+function onLanguageSelected() {
+  // update density with the selected language option
+  const selectedLang = dropdown.value();
+  density = languages[selectedLang];
 }
 
 function windowResized() {
