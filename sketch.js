@@ -19,6 +19,7 @@ let dropdown;
 function setupDropdown() {
   dropdown = createSelect();
   dropdown.position(10, 10);
+  dropdown.id('language-dropdown'); // add ID to the dropdown menu
   Object.keys(languages).forEach(lang => {
     dropdown.option(lang);
   });

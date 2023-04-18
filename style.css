@@ -16,7 +16,13 @@ body {
 }
 
 @media (max-width: 767px) {
-  footer,select {
-    padding-left: 220px;  }
+  footer {
+    padding-left: 220px;
+  }
+}
 
+@media (max-width: 767px) {
+  #language-dropdown {
+    margin-left: 220px;
+  }
 }
