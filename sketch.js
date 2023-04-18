@@ -1,6 +1,6 @@
 let video;
-let canvasWidth = 720;
-let canvasHeight = 450;
+let canvasWidth = 820;
+let canvasHeight = 550;
 
 // define an object of language options
 const languages = {
@@ -31,8 +31,8 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(canvasWidth / 10, canvasHeight / 10);
   video.hide();
-  button = createButton("save");
-  button.mousePressed(keyPressed);
+  // button = createButton("save");
+  // button.mousePressed(keyPressed);
 }
 
 function draw() {
@@ -74,3 +74,9 @@ function onLanguageSelected() {
 }
 
 
+function windowResized() {
+  // this function will be called whenever the window is resized
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight;
+  resizeCanvas(canvasWidth, canvasHeight);
+}
