@@ -49,4 +49,9 @@ canvas {
    }
  }
 
-
+ @media screen and (max-width: 375px) {
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+}
