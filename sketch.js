@@ -64,7 +64,7 @@ function draw() {
 
 function keyPressed() {
   // this will download the frame
-  saveCanvas(density, "jpg");
+  // saveCanvas(density, "jpg");
 }
 
 function onLanguageSelected() {
@@ -73,9 +73,4 @@ function onLanguageSelected() {
   density = languages[selectedLang];
 }
 
-function windowResized() {
-  // this function will be called whenever the window is resized
-  canvasWidth = windowWidth;
-  canvasHeight = windowHeight;
-  resizeCanvas(canvasWidth, canvasHeight);
-}
+
